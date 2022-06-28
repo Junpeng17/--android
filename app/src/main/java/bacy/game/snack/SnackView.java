@@ -107,7 +107,6 @@ public class SnackView extends View {
                 }
                 while (!isDead) {
                     if (timeThread.isInterrupted()) {
-                        Log.i("timeThread isInterrupted() = ","true");
                         break;
                     }
                     // 间隔1秒
@@ -182,7 +181,6 @@ public class SnackView extends View {
     }
 
     private void initSnack() {
-        Log.i("init Snack "," ");
         int ix = commonData.makeRandom(2,19);
         int iy = commonData.makeRandom(2,19);
         snack_x.add(ix); 
@@ -375,18 +373,13 @@ public class SnackView extends View {
     private void checkBoundary() {
         int x = snack_x_new.get(0);
         int y = snack_y_new.get(0);
-        Log.i("checkBoundary() head_next_x ",String.valueOf(head_next_x));
         if (x < 0 || x >= bodyNum) {
-            Log.i("!!!! is Over Boundary：","x");
             isDead = true;
-
             this.handler.removeCallbacks(gameRunnable);
             gameThread.interrupt();
             gameOverDialog();
         }
-        Log.i("checkBoundary() head_next_y ",String.valueOf(head_next_y));
         if (y < 0 || y >= bodyNum) {
-            Log.i("!!!! is Over Boundary：","y");
             isDead = true;
             this.handler.removeCallbacks(gameRunnable);
             gameThread.interrupt();
