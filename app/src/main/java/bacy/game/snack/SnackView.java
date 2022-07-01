@@ -607,6 +607,7 @@ public class SnackView extends View {
         alertdialogbuilder.setMessage("游戏结束！");
         alertdialogbuilder.setPositiveButton("再来一次", listener1);
         alertdialogbuilder.setNeutralButton("退出", listener2);
+        alertdialogbuilder.show();
         alertDialog = alertdialogbuilder.create();
     }
 
